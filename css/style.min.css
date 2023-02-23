@@ -7,7 +7,7 @@ html {
   overflow-x: hidden; }
 
 body {
-  background-image: url(./../img/bg.jpg);
+  background-image: url(./../img/bg_city.jpeg);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -106,6 +106,10 @@ p {
 img {
   max-width: 100%; }
 
+.foto_cv { border-radius: 50%; 
+  margin-left: auto;
+  margin-right: auto;}
+
 a:focus,
 button:focus {
   outline: none; }
@@ -158,6 +162,10 @@ a:hover {
 
 a {
   color: #f15e75; }
+
+a:naranja {
+  color: #FC665F
+}
 
 .fs-40 {
   font-size: 40px; }
