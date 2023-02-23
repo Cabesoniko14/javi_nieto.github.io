@@ -90,6 +90,17 @@ h6,
   font-family: 'Work Sans', sans-serif;
   margin-top: 0; }
 
+.fontawesomeicon::before {
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+ }
+
+.Python::before {
+   font: var(--fa-font-brands);
+    content: ' \f3e2';
+ }
+
 p {
   font-size: 1.6rem;
   font-weight: 300;
@@ -105,6 +116,11 @@ p {
 
 img {
   max-width: 100%; }
+
+.yourImage{
+    -webkit-filter: invert(100%); /* Safari/Chrome */
+    filter: invert(100%);
+}
 
 .foto_cv { border-radius: 50%; 
   margin-left: auto;
