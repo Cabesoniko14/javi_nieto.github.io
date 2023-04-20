@@ -30,14 +30,117 @@
     <!-- Modernizr JS for IE8 support of HTML5 elements and media queries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 
-    <style>
-        .code-cell {
-          background-color: #f5f5f5;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          padding: 10px;
-        }
-      </style
+    <!-- Include the highlight.js library -->
+
+    <!-- Include the highlight.js library -->
+<!-- Include the highlight.js library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+
+<style>
+  .code-cell {
+    background-color: #282c34;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    position: relative;
+  }
+
+  .copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+  }
+
+  .copy-btn:hover {
+    background-color: #e6e6e6;
+  }
+
+  .code-cell .hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    color: #abb2bf;
+    background: #282c34;
+  }
+
+  .code-cell .hljs-comment,
+  .code-cell .hljs-quote {
+    color: #5c6370;
+    font-style: italic;
+  }
+
+  .code-cell .hljs-doctag,
+  .code-cell .hljs-keyword,
+  .code-cell .hljs-formula {
+    color: #c678dd;
+  }
+
+  .code-cell .hljs-section,
+  .code-cell .hljs-name,
+  .code-cell .hljs-selector-tag,
+  .code-cell .hljs-deletion,
+  .code-cell .hljs-subst {
+    color: #e06c75;
+  }
+
+  .code-cell .hljs-literal {
+    color: #56b6c2;
+  }
+
+  .code-cell .hljs-string,
+  .code-cell .hljs-regexp,
+  .code-cell .hljs-addition,
+  .code-cell .hljs-attribute,
+  .code-cell .hljs-meta-string {
+    color: #98c379;
+  }
+
+  .code-cell .hljs-built_in,
+  .code-cell .hljs-class .hljs-title {
+    color: #e6c07b;
+  }
+
+  .code-cell .hljs-attr,
+  .code-cell .hljs-variable,
+  .code-cell .hljs-template-variable,
+  .code-cell .hljs-type,
+  .code-cell .hljs-selector-class,
+  .code-cell .hljs-selector-attr,
+  .code-cell .hljs-selector-pseudo,
+  .code-cell .hljs-number {
+    color: #d19a66;
+  }
+
+  .code-cell .hljs-symbol,
+  .code-cell .hljs-bullet,
+  .code-cell .hljs-link,
+  .code-cell .hljs-meta,
+  .code-cell .hljs-selector-id,
+  .code-cell .hljs-title {
+    color: #61aeee;
+  }
+
+  .code-cell .hljs-emphasis {
+    font-style: italic;
+  }
+
+  .code-cell .hljs-strong {
+    font-weight: bold;
+  }
+</style>
+
+  
+  
+
+
+
 
 </head>
 <body data-spy="scroll" data-target="#navbar-nav-header" class="single-layout">
@@ -70,39 +173,59 @@
             <div class="row">
                 <!-- Single Content Holder -->
                 <div class="col-md-8 offset-md-2 mt-4">
-                    <h4>Lorem ipsum dolor sit amet</h4>
+                    <h4>Te ha pasado que...</h4>
                     <img class="float-left" width="320px" src="img/blog-4.jpg" alt="">
-                    <p>Consectetur adipisicing elit. Sint, corrupti deleniti, rem mollitia quam cum quo, animi ipsa praesentium officiis ducimus! Modi aperiam, nulla ipsum, totam natus consequuntur fugiat blanditiis.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste harum, ut magni cupiditate. Nihil ipsum debitis voluptates voluptate illum consectetur sapiente dolorem facilis, eum nobis sequi eveniet assumenda vel voluptatem!</p>
-                    <p>Consectetur adipisicing elit. Sint, corrupti deleniti, rem mollitia quam cum quo, animi ipsa praesentium officiis ducimus! Modi aperiam, nulla ipsum, totam natus consequuntur fugiat blanditiis.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste harum, ut magni cupiditate. Nihil ipsum debitis voluptates voluptate illum consectetur sapiente dolorem facilis, eum nobis sequi eveniet assumenda vel voluptatem!</p>
+                    <p style="text-align: justify;">Quieres aprender más de una nueva forma de programar, o entender un algoritmo de clase, quizás heredar un proyecto de alguien más que ahora tu debes ejecutar. Descargas los scritps y... no entiendes muy bien qué hace el código. Pero, desafortunadamente, no está comentado.</p>
+                    <p style="text-align: justify;">Muchas veces, adrentarse a un nuevo código puede ser una aventura llena de baches. Temas nuevos, funciones nunca antes vistas, nuevas estructuras de datos... Lo bueno: al agregar explicaciones a nuestros algoritmos, podemos ahorrar un gran problema, no solo a otras personas, sino a nosotros mismos cuando volvamos al mismo código.</p>
+                    <p style="text-align: justify;">Veámoslo con un ejemplo. Echémosle un vistazo a la siguiente celda de código:</p>
+                    <!-- Include the highlight.js library -->
 
-                    <div id="code-block"></div>
+                    <div id="code-cell"></div>
 
-                   
-                      
-                      <div id="code-cell"></div>
-                      
-                      <script>
-                        const code = `
-                          function helloWorld() {
-                            console.log("Hello, world!");
-                          }
-                          
-                          helloWorld();
-                        `;
-                      
-                        const codeBlock = document.createElement("code");
-                        codeBlock.textContent = code;
-                      
-                        const pre = document.createElement("pre");
-                        pre.classList.add("code-cell");
-                        pre.appendChild(codeBlock);
-                      
-                        const container = document.getElementById("code-cell");
-                        container.appendChild(pre);
-                      </script>
-                      
+<script>
+  const code = `
+    function helloWorld() {
+      console.log("Hello, world!");
+    }
+    
+    helloWorld();
+  `;
+
+  const pre = document.createElement("pre");
+  pre.classList.add("code-cell");
+
+  const codeBlock = document.createElement("code");
+  codeBlock.textContent = code;
+  codeBlock.classList.add("javascript");
+
+  pre.appendChild(codeBlock);
+
+  // Call the highlight.js library to apply syntax highlighting
+  hljs.highlightBlock(codeBlock);
+
+  const container = document.getElementById("code-cell");
+  container.appendChild(pre);
+
+  // Add a "Copy" button to the code cell
+  const copyBtn = document.createElement("button");
+  copyBtn.classList.add("copy-btn");
+  copyBtn.textContent = "Copy";
+  copyBtn.addEventListener("click", () => {
+    const codeText = codeBlock.textContent;
+    navigator.clipboard.writeText(codeText)
+      .then(() => {
+        console.log("Code copied to clipboard!");
+      })
+      .catch((err) => {
+        console.error("Failed to copy code: ", err);
+      });
+  });
+
+  pre.appendChild(copyBtn);
+</script>
+
+
+
 
                     
                    
