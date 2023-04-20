@@ -30,6 +30,15 @@
     <!-- Modernizr JS for IE8 support of HTML5 elements and media queries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 
+    <style>
+        .code-cell {
+          background-color: #f5f5f5;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          padding: 10px;
+        }
+      </style
+
 </head>
 <body data-spy="scroll" data-target="#navbar-nav-header" class="single-layout">
 	<div class="boxed-page">
@@ -67,6 +76,34 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste harum, ut magni cupiditate. Nihil ipsum debitis voluptates voluptate illum consectetur sapiente dolorem facilis, eum nobis sequi eveniet assumenda vel voluptatem!</p>
                     <p>Consectetur adipisicing elit. Sint, corrupti deleniti, rem mollitia quam cum quo, animi ipsa praesentium officiis ducimus! Modi aperiam, nulla ipsum, totam natus consequuntur fugiat blanditiis.</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste harum, ut magni cupiditate. Nihil ipsum debitis voluptates voluptate illum consectetur sapiente dolorem facilis, eum nobis sequi eveniet assumenda vel voluptatem!</p>
+
+                    <div id="code-block"></div>
+
+                   
+                      
+                      <div id="code-cell"></div>
+                      
+                      <script>
+                        const code = `
+                          function helloWorld() {
+                            console.log("Hello, world!");
+                          }
+                          
+                          helloWorld();
+                        `;
+                      
+                        const codeBlock = document.createElement("code");
+                        codeBlock.textContent = code;
+                      
+                        const pre = document.createElement("pre");
+                        pre.classList.add("code-cell");
+                        pre.appendChild(codeBlock);
+                      
+                        const container = document.getElementById("code-cell");
+                        container.appendChild(pre);
+                      </script>
+                      
+
                     
                    
                 </div>
