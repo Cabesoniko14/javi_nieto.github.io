@@ -176,19 +176,39 @@
                     <h4>Te ha pasado que...</h4>
                     <img class="float-left" width="320px" src="img/blog-4.jpg" alt="">
                     <p style="text-align: justify;">Quieres aprender más de una nueva forma de programar, o entender un algoritmo de clase, quizás heredar un proyecto de alguien más que ahora tu debes ejecutar. Descargas los scripts y... no entiendes muy bien qué hace el código. Y lo peor: no está comentado.</p>
-                    <p style="text-align: justify;">Muchas veces, adrentarse a un nuevo código puede ser una aventura llena de baches. Temas nuevos, funciones nunca antes vistas, nuevas estructuras de datos... Lo bueno: al agregar explicaciones a nuestros algoritmos, podemos ahorrar un gran problema, no solo a otras personas, sino a nosotros mismos cuando volvamos al mismo código.</p>
-                    <p style="text-align: justify;">Veámoslo con un ejemplo. Echémosle un vistazo a la siguiente celda de código:</p>
+                    <p style="text-align: justify;">Muchas veces, adentarse a un nuevo código puede ser una aventura llena de baches. Temas nuevos, funciones nunca antes vistas, nuevas estructuras de datos... Lo bueno: al agregar explicaciones a nuestros algoritmos, podemos ahorrar un gran problema. No solo a otras personas, sino a nosotros mismos cuando volvamos al mismo código.</p>
+                    <p style="text-align: justify;">Echémosle un vistazo a la siguiente celda de código:</p>
                     <!-- Include the highlight.js library -->
 
                     <div id="code-cell"></div>
 
 <script>
   const code = `
-    function helloWorld() {
-      console.log("Hello, world!");
-    }
-    
-    helloWorld();
+  a_posteriori <- function(trayectoria, df_entrenamiento, a_priori = 0.5, c = 1e-6)
+{
+  mensaje <- lee_mensaje(trayectoria)
+  mensaje <- enc2utf8(mensaje)
+  mensaje_TDM <- obtiene_TermDocumentMatrix(mensaje)
+  conteos_mensaje <- rowSums(as.matrix(mensaje_TDM))
+
+  # Encuentra palabras en data frame de entrenamiento
+  mensaje_palabras_comunes <- intersect(names(conteos_mensaje), df_entrenamiento$terminos)
+  
+  # Ahora sólo aplicamos la clasificación Bayes ingenuo
+  if(length(mensaje_palabras_comunes) < 1)
+  {
+    #return(a_priori * c ^ (length(conteos_mensaje)))
+    return(log(a_priori) + (length(conteos_mensaje)) *log(c))
+  }
+  else
+  {
+    probabilidades_palabras_comunes <- df_entrenamiento$densidad[match(mensaje_palabras_comunes, df_entrenamiento$terminos)]
+    #return(a_priori * prod(probabilidades_palabras_comunes) * c ^ (length(conteos_mensaje) - length(mensaje_palabras_comunes)))
+    return(log(a_priori) + sum(log(probabilidades_palabras_comunes)) + log(c) * (length(conteos_mensaje) - length(mensaje_palabras_comunes)))
+  }
+
+  # Hacemos que a todas las palabras que no encontraste, le asignamos una probabilidad chiquita.
+}
   `;
 
   const pre = document.createElement("pre");
@@ -223,8 +243,18 @@
 
   pre.appendChild(copyBtn);
 </script>
-
-
+              <p style="text-align: justify;">Se trata de una función para calcular la probabilidad a posteriori de Bayes Ingenuo. Es un algoritmo para muchos sencillo, para otros complicado. Pero lo cierto es que los comentarios ayudan muchísimo a entender mejor lo que está pasando. Incluso para los propios programadores del algoritmo; es una buena herramienta para recordar qué hacen nuestros propios códigos.</p>
+              <br>
+              <h4>Markdown</h4>
+                    <p style="text-align: justify;">Comentar tu código queda claro que es muy importante. Pero creo que hay una costumbre más que deberíamos adoptar los programadores: darle una estructura. En lo personal, cada proyecto, cada código, cada tarea que realizo, la desarrollo en un notebook. Usando títulos, subtítulos, notas y explicaciones.</p>
+                    <p style="text-align: justify;">Creo firmemente que realizar código es como contar una historia. Con una introducción a los personajes y lo que los motiva a actuar, dibujando un camino sin perder el hilo central y llegando al resultado esperado.</p>
+                    <div style="text-align: center; margin: 5px 0;">
+                      <img class="float-center" width="400px" src="img/shovel.gif" alt="">
+                    </div>
+                    <p style="text-align: justify;">Hacer notebooks con celdas de markdown da incluso más realidad al punto anterior. Es conjuntar celdas de código y respaldarlas con una jerarquía. En la siguiente imagen, vemos el outline de un jupyter notebook habiendo usado markdown. Y se puede ver claramente como existe esa estructura, y es muy fácil de revivir cada segmento.</p>
+                    <img class="float-left" width="800px" src="img/outline.png" alt="">
+                    <p style="text-align: justify;">Por último, creo que usar markdown como una "herramienta de comentar código", además de poder entender mejor el código, lo cierto es que da muchísimo estilo. Quiero terminar este post con un ejemplo de un perceptrón que construí en la universidad, donde descubrí lo que markdown podía brindar a mi código. Comentar tu código es: entenderlo, estructurarlo, y saber compartirlo.</p>
+                    <img class="float-left" width="800px" src="img/ejemplo_md.png" alt="">
 
 
                     
